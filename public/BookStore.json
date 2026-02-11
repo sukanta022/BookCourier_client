@@ -1,0 +1,92 @@
+[
+  {
+    "region": "Dhaka",
+    "district": "Dhaka",
+    "city": "Dhaka",
+    "covered_area": ["Uttara", "Dhanmondi", "Mirpur", "Mohammadpur"],
+    "status": "active",
+    "longitude": 90.4125,
+    "latitude": 23.8103
+  },
+  {
+    "region": "Dhaka",
+    "district": "Gazipur",
+    "city": "Gazipur",
+    "covered_area": ["Tongi", "Board Bazar", "Konabari"],
+    "status": "active",
+    "longitude": 90.4203,
+    "latitude": 23.9999
+  },
+  {
+    "region": "Dhaka",
+    "district": "Narayanganj",
+    "city": "Narayanganj",
+    "covered_area": ["Chashara", "Fatullah", "Shibu Market"],
+    "status": "active",
+    "longitude": 90.5016,
+    "latitude": 23.6238
+  },
+  {
+    "region": "Chattogram",
+    "district": "Chattogram",
+    "city": "Chattogram",
+    "covered_area": ["Panchlaish", "Agrabad", "Nasirabad"],
+    "status": "active",
+    "longitude": 91.7832,
+    "latitude": 22.3569
+  },
+  {
+    "region": "Chattogram",
+    "district": "Cox's Bazar",
+    "city": "Cox's Bazar",
+    "covered_area": ["Kolatoli", "Laboni Beach", "Tekpara"],
+    "status": "active",
+    "longitude": 91.9810,
+    "latitude": 21.4272
+  },
+  {
+    "region": "Rajshahi",
+    "district": "Rajshahi",
+    "city": "Rajshahi",
+    "covered_area": ["Kazla", "Boalia", "Motihar"],
+    "status": "active",
+    "longitude": 88.6298,
+    "latitude": 24.3636
+  },
+  {
+    "region": "Khulna",
+    "district": "Khulna",
+    "city": "Khulna",
+    "covered_area": ["Sonadanga", "Khalishpur", "Boyra"],
+    "status": "active",
+    "longitude": 89.5672,
+    "latitude": 22.8456
+  },
+  {
+    "region": "Sylhet",
+    "district": "Sylhet",
+    "city": "Sylhet",
+    "covered_area": ["Zindabazar", "Ambarkhana", "Shahjalal Uposhohor"],
+    "status": "active",
+    "longitude": 91.8687,
+    "latitude": 24.8949
+  },
+  {
+    "region": "Barishal",
+    "district": "Barishal",
+    "city": "Barishal",
+    "covered_area": ["Nathullabad", "Kashipur", "Rupatoli"],
+    "status": "active",
+    "longitude": 90.3712,
+    "latitude": 22.7010
+  },
+  {
+    "region": "Rangpur",
+    "district": "Rangpur",
+    "city": "Rangpur",
+    "covered_area": ["Jahaj Company", "Guptapara", "Medical More"],
+    "status": "active",
+    "longitude": 89.2517,
+    "latitude": 25.7439
+  }
+]
