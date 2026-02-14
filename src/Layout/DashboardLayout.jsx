@@ -73,6 +73,13 @@ const DashboardLayout = () => {
                                 <p>My Profile</p>
                             </Link>
                         </li>
+
+                        <li>
+                            <Link to={'/Dashboard/Users'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                
+                                <p>Users</p>
+                            </Link>
+                        </li>
                         
                     </ul>
                 </aside>

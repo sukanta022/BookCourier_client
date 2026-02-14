@@ -6,7 +6,7 @@ const useAccountUser = () => {
     const {user,loading} = useAuth()
 
     const axiosInstace = useAxios()
-    const {data: userData, isLoading, error} = useQuery({
+    const {data: userData, isLoading, error, refetch} = useQuery({
         queryKey: [user?.email],
         enabled: !!user?.email && !loading,
         queryFn: async () => {
@@ -15,7 +15,7 @@ const useAccountUser = () => {
         }
     })
 
-    return { userData, isLoading, error };
+    return { userData, isLoading, error, refetch };
 
 };
 
