@@ -57,7 +57,7 @@ const Register = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200 px-4">
             <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
-                {/* Header */}
+                
                 <div className="text-center mb-6">
                     <div className="bg-blue-600 p-4 rounded-full inline-block">
                         <IoBookOutline className="text-white text-3xl" />
@@ -67,7 +67,7 @@ const Register = () => {
                 </div>
 
                 <form onSubmit={handleSubmit(handleRegister)} className="space-y-4">
-                    {/* Name */}
+                    
                     <div>
                         <label className="label">Name</label>
                         <input
@@ -83,15 +83,10 @@ const Register = () => {
                         )}
                     </div>
 
-                    {/* Email */}
+                    
                     <div>
                         <label className="label">Email</label>
-                        <input
-                            type="email"
-                            {...register("email", { required: "Email is required" })}
-                            className="input input-bordered w-full"
-                            placeholder="Enter your email"
-                        />
+                        <input type="email" {...register("email", { required: "Email is required" })} className="input input-bordered w-full"placeholder="Enter your email"/>
                         {errors.email && (
                             <p className="text-red-500 text-sm mt-1">
                                 {errors.email.message}
@@ -99,7 +94,7 @@ const Register = () => {
                         )}
                     </div>
 
-                    {/* Password */}
+                    
                     <div>
                         <label className="label">Password</label>
                         <div className="relative">

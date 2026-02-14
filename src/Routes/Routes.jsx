@@ -3,6 +3,10 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home/Home";
 import Register from "../Pages/Auth/Register";
 import Login from "../Pages/Auth/Login";
+import DashboardLayout from "../Layout/DashboardLayout";
+import HomePage from "../Pages/Dashboard/users/HomePage";
+import MyOrders from "../Pages/Dashboard/users/MyOrders";
+import MyProfile from "../Pages/Dashboard/users/MyProfile";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -22,5 +26,23 @@ export const router = createBrowserRouter([
         }
     ]
   },
+  {
+    path: "/Dashboard",
+    Component: DashboardLayout,
+    children: [
+        {
+            index: true,
+            Component: HomePage
+        },
+        {
+            path: '/Dashboard/MyOrders',
+            Component: MyOrders
+        },
+        {
+            path: '/Dashboard/Profile',
+            Component: MyProfile
+        }
+    ]
+  }
   
 ]);

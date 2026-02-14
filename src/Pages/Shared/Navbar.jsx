@@ -15,7 +15,7 @@ const Navbar = () => {
     <NavLink to={"/"}>Home</NavLink>
     <NavLink onClick={() => window.scrollTo(0, 0)} to={"/books"}>Books</NavLink>
     {
-      user && <NavLink to={"/dashboard"}>Dashboard</NavLink>
+      user && <NavLink to={"/Dashboard"}>Dashboard</NavLink>
     }
   </>
 
