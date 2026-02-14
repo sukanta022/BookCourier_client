@@ -8,6 +8,7 @@ import HomePage from "../Pages/Dashboard/users/HomePage";
 import MyOrders from "../Pages/Dashboard/users/MyOrders";
 import MyProfile from "../Pages/Dashboard/users/MyProfile";
 import UserList from "../Pages/Dashboard/Admin/UserList";
+import BookForm from "../Pages/Dashboard/Librarian/BookForm";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
         {
             path: '/Dashboard/Users',
             Component: UserList
+        }, 
+        {
+            path: '/Dashboard/Add_books',
+            Component: BookForm
         }
     ]
   }

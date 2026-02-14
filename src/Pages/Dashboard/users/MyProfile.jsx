@@ -39,7 +39,7 @@ const MyProfile = () => {
                 axiosSecure.patch(`/users/${email}`, updateProfile)
                     .then(res => {
                         console.log("Server response:", res.data);
-                        refetch(); 
+                        refetch(); // refetch updated user
 
                         if (res.data.modifiedCount > 0) {
                             Swal.fire({
