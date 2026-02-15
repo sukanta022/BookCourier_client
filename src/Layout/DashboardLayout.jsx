@@ -1,11 +1,20 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router';
 import useAuth from '../hooks/useAuth';
-import { MdOutlineDashboard } from "react-icons/md";
-import { IoCartOutline } from "react-icons/io5"
+import { IoCartOutline, IoPersonOutline, IoPeopleOutline, IoBookOutline } from "react-icons/io5";
+import { TbDashboard } from "react-icons/tb";
+import { FiSettings } from "react-icons/fi";
+import { MdLibraryBooks, MdAddBox, MdShoppingCart, MdOutlineDashboard } from "react-icons/md";
+import useRole from '../hooks/useRole';
+import { FaArrowLeft } from "react-icons/fa6";
+
 const DashboardLayout = () => {
     const { user } = useAuth();
+    const { role, roleLoading } = useRole();
 
+    if(roleLoading){
+        return <p>Loading....</p>
+    }
     return (
         <div className="drawer lg:drawer-open min-h-screen bg-base-100">
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -20,6 +29,11 @@ const DashboardLayout = () => {
                         </label>
                     </div>
                     <div className="flex-1 font-semibold text-lg">Dashboard</div>
+
+                    <div>
+                        <Link to={'/'} className='btn text-white bg-black font-bold'><FaArrowLeft /> Back to home</Link>
+                    </div>
+                    
                 </nav>
 
                 {/* Page Content */}
@@ -44,70 +58,122 @@ const DashboardLayout = () => {
                         </div>
                     </div>
 
-                    {/* Menu */}
                     <ul className="menu p-3 gap-1 flex-1">
-                        <li>
-                            <Link to={'/Dashboard'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="size-5"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1 -2 2H5a2 2 0 0 1 -2 -2z"></path></svg>
-                                <span>Homepage</span>
-                            </Link>
-                        </li>
 
-                        <li>
-                            <Link className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="size-5"><path d="M20 7h-9"></path><path d="M14 17H5"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
-                                <span>Settings</span>
-                            </Link>
-                        </li>
+                        {
+                            role == "user" && <>
+                                {/* Homepage / Dashboard */}
+                                <li>
+                                    <Link to={'/Dashboard'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                        <TbDashboard className="text-xl" />
+                                        <span>Homepage</span>
+                                    </Link>
+                                </li>
+                                {/* My Orders */}
+                                <li>
+                                    <Link to={'/Dashboard/MyOrders'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                        <IoCartOutline className="text-xl" />
+                                        <span>My Orders</span>
+                                    </Link>
+                                </li>
 
-                        <li>
-                            <Link to={'/Dashboard/MyOrders'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
-                                <p><IoCartOutline/></p>
-                                <p>My Orders</p>
-                            </Link>
-                        </li>
+                                {/* Carts */}
+                                <li>
+                                    <Link to={'/Dashboard/carts'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                        <MdShoppingCart className="text-xl" />
+                                        <span>Carts</span>
+                                    </Link>
+                                </li>
+                            </>
+                        }
 
+
+                        {
+                            role == "librarian" && <>
+                                {/* Add Books */}
+                                <li>
+                                    <Link to={'/Dashboard/Add_books'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                        <MdAddBox className="text-xl" />
+                                        <span>Add Books</span>
+                                    </Link>
+                                </li>
+
+                                {/* All Books */}
+                                <li>
+                                    <Link to={'/Dashboard/All_books'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                        <MdLibraryBooks className="text-xl" />
+                                        <span>All Books</span>
+                                    </Link>
+                                </li>
+
+                                {/* Librarian Invoice */}
+                                <li>
+                                    <Link to={'/Dashboard/LibrarianInvoice'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                        <MdLibraryBooks className="text-xl" />
+                                        <span>Librarian Invoice</span>
+                                    </Link>
+                                </li>
+
+                                {/* All Books */}
+                                <li>
+                                    <Link to={'/Dashboard/All_books'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                        <MdLibraryBooks className="text-xl" />
+                                        <span>All Books</span>
+                                    </Link>
+                                </li>
+
+                            </>
+                        }
+
+                        {
+                            role == "admin" && <>
+                                {/* Users */}
+                                <li>
+                                    <Link to={'/Dashboard/Users'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                        <IoPeopleOutline className="text-xl" />
+                                        <span>Users</span>
+                                    </Link>
+                                </li>
+
+                                {/* All Books */}
+                                <li>
+                                    <Link to={'/Dashboard/All_books'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                        <MdLibraryBooks className="text-xl" />
+                                        <span>All Books</span>
+                                    </Link>
+                                </li>
+
+
+                            </>
+                        }
+
+
+
+
+                        {/* My Profile */}
                         <li>
                             <Link to={'/Dashboard/Profile'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
-                                <p><IoCartOutline/></p>
-                                <p>My Profile</p>
+                                <IoPersonOutline className="text-xl" />
+                                <span>My Profile</span>
                             </Link>
+
+
+
+
                         </li>
 
-                        <li>
-                            <Link to={'/Dashboard/Users'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
-                                
-                                <p>Users</p>
-                            </Link>
-                        </li>
-                        
-                        <li>
-                            <Link to={'/Dashboard/Add_books'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
-                                
-                                <p>Add books</p>
-                            </Link>
-                        </li>
 
-                        <li>
-                            <Link to={'/Dashboard/All_books'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
-                                
-                                <p>All books</p>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to={'/Dashboard/carts'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
-                                
-                                <p>carts</p>
-                            </Link>
-                        </li>
 
-                        <li>
-                            <Link to={'/Dashboard/LibrarianInvoice'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
-                                
-                                <p>Librarian Invoice</p>
-                            </Link>
-                        </li>
+
+
+
+
+
+
+
+
                     </ul>
+
                 </aside>
             </div>
         </div>

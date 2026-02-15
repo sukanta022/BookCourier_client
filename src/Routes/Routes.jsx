@@ -18,6 +18,7 @@ import Cart from "../Pages/Dashboard/users/Cart";
 import PaymentSuccess from "../Pages/Dashboard/users/PaymentSuccess";
 import LibrarianInvoice from "../Pages/Dashboard/Librarian/LibrarianInvoice";
 import AdminRoute from "./AdminRoute";
+import LibrarianRoute from "./LibrarianRoute";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -55,41 +56,39 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/Dashboard/MyOrders',
-                Component: MyOrders
+                element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
             },
             {
                 path: '/Dashboard/Profile',
-                Component: MyProfile
+                element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
             },
             {
                 path: '/Dashboard/Users',
-                // Component: UserList,
                 element: <AdminRoute><UserList></UserList></AdminRoute>
             },
             {
                 path: '/Dashboard/Add_books',
-                Component: BookForm
+                element: <LibrarianRoute><BookForm></BookForm></LibrarianRoute>
             },
             {
                 path: '/Dashboard/All_books',
-                Component: BookList
+                element: <PrivateRoute><BookList></BookList></PrivateRoute>
             },
             {
                 path: '/Dashboard/update-book',
-                Component: BookUpdate
+                element: <PrivateRoute><BookUpdate></BookUpdate></PrivateRoute>
             },
             {
                 path: '/Dashboard/carts',
-                Component: Cart
+                element: <PrivateRoute><Cart></Cart></PrivateRoute>
             },
             {
                 path: "/Dashboard/payment-success",
-                Component: PaymentSuccess
+                element: <PrivateRoute><PaymentSuccess></PaymentSuccess></PrivateRoute>
             },
             {
-                
                 path: "/Dashboard/LibrarianInvoice",
-                Component: LibrarianInvoice
+                element: <LibrarianRoute><LibrarianInvoice></LibrarianInvoice></LibrarianRoute>
             }
         ]
     }
