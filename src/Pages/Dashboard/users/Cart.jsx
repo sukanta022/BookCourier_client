@@ -36,6 +36,19 @@ const Cart = () => {
         });
     };
 
+    const handlePayment = async(bookCart) => {
+        const paymentInfo = {
+            cost : bookCart.bookPrice,
+            cartID : bookCart._id,
+            senderEmail : bookCart.userEmail,
+            bookName : bookCart.bookTitle
+        }
+        console.log(paymentInfo)
+        const res = await axiosSecure.post('/payment-checkout-session', paymentInfo)
+        console.log(res.data.url)
+        window.location.assign(res.data.url)
+    }
+
     
 
     return (
@@ -69,7 +82,7 @@ const Cart = () => {
                                             <FaCheckCircle /> Paid
                                         </span>
                                     ) : (
-                                        <button className="btn btn-xs bg-indigo-600 text-white hover:bg-indigo-500">
+                                        <button onClick={() => handlePayment(item)} className="btn btn-xs bg-indigo-600 text-white hover:bg-indigo-500">
                                             <FaCreditCard /> Pay
                                         </button>
                                     )}

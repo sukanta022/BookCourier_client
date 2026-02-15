@@ -11,6 +11,7 @@ const BookDetails = () => {
     const {userData} = useAccountUser()
     const handleCartSubmit = () =>{
         const cartData = {
+            bookPrice : book.price,
             bookID : book._id,
             bookTitle : book.title,
             userEmail :  userData.email,
