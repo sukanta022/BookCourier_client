@@ -14,6 +14,7 @@ import BookUpdate from "../Pages/Dashboard/Librarian/BookUpdate";
 import BrowseBooks from "../Pages/Browse/BrowseBooks";
 import PrivateRoute from "./PrivateRoute";
 import BookDetails from "../Pages/Browse/BookDetails";
+import Cart from "../Pages/Dashboard/users/Cart";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
         {
             path: '/Dashboard/update-book',
             Component: BookUpdate
+        },
+        {
+            path: '/Dashboard/carts',
+            Component: Cart 
         }
     ]
   }
