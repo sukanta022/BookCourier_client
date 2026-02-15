@@ -100,6 +100,13 @@ const DashboardLayout = () => {
                                 <p>carts</p>
                             </Link>
                         </li>
+
+                        <li>
+                            <Link to={'/Dashboard/LibrarianInvoice'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                
+                                <p>Librarian Invoice</p>
+                            </Link>
+                        </li>
                     </ul>
                 </aside>
             </div>

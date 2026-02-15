@@ -43,7 +43,7 @@ const Cart = () => {
             senderEmail : bookCart.userEmail,
             bookName : bookCart.bookTitle
         }
-        console.log(paymentInfo)
+        
         const res = await axiosSecure.post('/payment-checkout-session', paymentInfo)
         console.log(res.data.url)
         window.location.assign(res.data.url)

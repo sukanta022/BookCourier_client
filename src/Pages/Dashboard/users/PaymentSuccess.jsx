@@ -1,21 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSearchParams, Link } from "react-router";
 import { FaCheckCircle, FaShoppingBag, FaHome } from "react-icons/fa";
+import useAxios from "../../../hooks/useAxios";
 
 const PaymentSuccess = () => {
+
     const [searchParams] = useSearchParams();
+    const axiosSecure = useAxios()
     const sessionId = searchParams.get("session_id");
+    console.log(sessionId)
+    
+
+    useEffect(() => {
+        if(sessionId) {
+            axiosSecure.patch(`/payment-success?session_id=${sessionId}`)     
+        }
+    }, [sessionId, axiosSecure])
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-white flex items-center justify-center p-6">
             <div className="bg-white shadow-2xl rounded-3xl max-w-md w-full p-10 text-center">
 
-                {/* Icon */}
                 <div className="flex justify-center mb-6">
                     <FaCheckCircle className="text-6xl text-emerald-500 animate-pulse" />
                 </div>
 
-                {/* Text */}
+                
                 <h1 className="text-3xl font-bold text-gray-800 mb-2">
                     Payment Successful 🎉
                 </h1>

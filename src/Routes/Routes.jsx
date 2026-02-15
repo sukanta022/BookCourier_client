@@ -16,6 +16,7 @@ import PrivateRoute from "./PrivateRoute";
 import BookDetails from "../Pages/Browse/BookDetails";
 import Cart from "../Pages/Dashboard/users/Cart";
 import PaymentSuccess from "../Pages/Dashboard/users/PaymentSuccess";
+import LibrarianInvoice from "../Pages/Dashboard/Librarian/LibrarianInvoice";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -82,6 +83,11 @@ export const router = createBrowserRouter([
             {
                 path: "/Dashboard/payment-success",
                 Component: PaymentSuccess
+            },
+            {
+                
+                path: "/Dashboard/LibrarianInvoice",
+                Component: LibrarianInvoice
             }
         ]
     }
