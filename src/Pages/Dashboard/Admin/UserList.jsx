@@ -38,6 +38,7 @@ const UserList = () => {
     }
 
     const removeUser = (email) => {
+        console.log(email)
         Swal.fire({
             title: "Delete user?",
             text: "This action cannot be undone!",
@@ -104,7 +105,7 @@ const UserList = () => {
                                 <td className="p-4 text-center">
                                     <button
                                         onClick={() => removeUser(user.email)}
-                                        className="text-red-500 hover:text-red-600 text-xl transition"
+                                        className="text-red-500 btn hover:text-red-600 text-xl transition"
                                     >
                                         <FaTrashAlt />
                                     </button>
