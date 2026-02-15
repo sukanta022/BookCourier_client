@@ -11,9 +11,7 @@ const Footer = () => {
                 <div className='lg:w-250 space-y-3'>
                     <div className='text-white font-bold text-2xl flex gap-2 items-center justify-center lg:justify-start animate__animated animate__jello'>
                         
-                        <div className='bg-[#0D9488] text-white p-1 rounded-lg  '>
-                                        <SlEnergy />
-                                      </div>
+                        
                                       BookCourier 
                     </div>
                     <p className='text-[#A1A1AA]'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>

@@ -13,10 +13,11 @@ const Navbar = () => {
     
   const NavList = <>
     <li><NavLink to={"/"}>Home</NavLink></li>
+    <li><NavLink to={"/browse_books"}>Browse books</NavLink></li>
     {
       user &&  <>
         <li><NavLink to={"/Dashboard"}>Dashboard</NavLink></li>
-        <li><NavLink to={"/browse_books"}>Browse books</NavLink></li>
+        
       </>
     }
   </>
