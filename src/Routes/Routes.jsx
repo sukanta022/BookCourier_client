@@ -17,6 +17,7 @@ import BookDetails from "../Pages/Browse/BookDetails";
 import Cart from "../Pages/Dashboard/users/Cart";
 import PaymentSuccess from "../Pages/Dashboard/users/PaymentSuccess";
 import LibrarianInvoice from "../Pages/Dashboard/Librarian/LibrarianInvoice";
+import AdminRoute from "./AdminRoute";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -62,7 +63,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/Dashboard/Users',
-                Component: UserList
+                // Component: UserList,
+                element: <AdminRoute><UserList></UserList></AdminRoute>
             },
             {
                 path: '/Dashboard/Add_books',
