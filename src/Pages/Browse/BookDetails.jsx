@@ -1,11 +1,42 @@
 import React from "react";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { useLocation } from "react-router";
-
-
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAccountUser from "../../hooks/useAccountUser";
+import Swal from "sweetalert2";
 
 const BookDetails = () => {
     const { state: book } = useLocation();
+    const axiosSecure = useAxiosSecure()
+    const {userData} = useAccountUser()
+    const handleCartSubmit = () =>{
+        const cartData = {
+            bookID : book._id,
+            bookTitle : book.title,
+            userEmail :  userData.email,
+            status : "unpaid",
+        }
+         axiosSecure.post(`/carts?email=${userData?.email}`, cartData)
+            .then(res => {
+                if (res.data?.insertedId) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Added to Cart!",
+                        text: `${book.title} has been added to your cart`,
+                        timer: 1500,
+                        showConfirmButton: false,
+                    });
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Failed",
+                    text: "Could not add book to cart. Try again!",
+                });
+            });
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-[#F9FAFB] to-[#EEF2FF] flex items-center justify-center px-6 py-16">
@@ -30,14 +61,14 @@ const BookDetails = () => {
                        
                         <div className="flex items-center gap-6 text-sm mb-8">
                             <span className="bg-gray-100 px-4 py-2 rounded-full text-gray-700">📦 {book.totalBooks} in stock</span>
-                            
+
                             <span className="bg-gray-100 px-4 py-2 rounded-full text-gray-700">💲 {book.price}</span>
                         </div>
                     </div>
 
                     
                     <div className="flex gap-4">
-                        <button className="flex-1 flex items-center justify-center gap-2 bg-black text-white py-3 rounded-xl hover:bg-indigo-600 transition font-semibold shadow-lg"><FaShoppingCart /> Add to Cart </button>
+                        <button onClick={handleCartSubmit} className="btn flex-1 flex items-center justify-center gap-2 bg-black text-white py-3 rounded-xl hover:bg-indigo-600 transition font-semibold shadow-lg"><FaShoppingCart /> Add to Cart </button>
 
                         <button className="flex-1 flex items-center justify-center gap-2 border border-gray-300 py-3 rounded-xl hover:bg-pink-500 hover:text-white transition font-semibold shadow"> <FaHeart /> Wishlist</button>
                     </div>
