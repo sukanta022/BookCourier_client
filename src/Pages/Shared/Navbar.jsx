@@ -12,10 +12,12 @@ const Navbar = () => {
     }
     
   const NavList = <>
-    <NavLink to={"/"}>Home</NavLink>
-    <NavLink onClick={() => window.scrollTo(0, 0)} to={"/books"}>Books</NavLink>
+    <li><NavLink to={"/"}>Home</NavLink></li>
     {
-      user && <NavLink to={"/Dashboard"}>Dashboard</NavLink>
+      user &&  <>
+        <li><NavLink to={"/Dashboard"}>Dashboard</NavLink></li>
+        <li><NavLink to={"/browse_books"}>Browse books</NavLink></li>
+      </>
     }
   </>
 

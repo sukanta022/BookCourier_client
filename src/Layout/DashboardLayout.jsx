@@ -87,6 +87,13 @@ const DashboardLayout = () => {
                                 <p>Add books</p>
                             </Link>
                         </li>
+
+                        <li>
+                            <Link to={'/Dashboard/All_books'} className="flex gap-3 items-center rounded-lg hover:bg-primary hover:text-white transition">
+                                
+                                <p>All books</p>
+                            </Link>
+                        </li>
                     </ul>
                 </aside>
             </div>

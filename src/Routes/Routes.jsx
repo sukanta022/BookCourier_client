@@ -9,6 +9,11 @@ import MyOrders from "../Pages/Dashboard/users/MyOrders";
 import MyProfile from "../Pages/Dashboard/users/MyProfile";
 import UserList from "../Pages/Dashboard/Admin/UserList";
 import BookForm from "../Pages/Dashboard/Librarian/BookForm";
+import BookList from "../Pages/Dashboard/Librarian/BookList";
+import BookUpdate from "../Pages/Dashboard/Librarian/BookUpdate";
+import BrowseBooks from "../Pages/Browse/BrowseBooks";
+import PrivateRoute from "./PrivateRoute";
+import BookDetails from "../Pages/Browse/BookDetails";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +30,14 @@ export const router = createBrowserRouter([
         {
             path: '/login',
             Component: Login
+        },
+        {
+            path : '/browse_books',
+            element: <PrivateRoute><BrowseBooks></BrowseBooks></PrivateRoute>
+        },
+        {
+            path : '/browse_book/:id',
+            element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>
         }
     ]
   },
@@ -51,6 +64,14 @@ export const router = createBrowserRouter([
         {
             path: '/Dashboard/Add_books',
             Component: BookForm
+        },
+        {
+            path: '/Dashboard/All_books',
+            Component: BookList
+        },
+        {
+            path: '/Dashboard/update-book',
+            Component: BookUpdate
         }
     ]
   }
